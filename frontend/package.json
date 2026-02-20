@@ -13,14 +13,17 @@
     "framer-motion": "^11.3.24",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "recharts": "^2.12.7",
-    "react-icons": "^5.3.0"
+    "react-icons": "^5.3.0",
+    "recharts": "^2.12.7"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
+    "sharp": "^0.34.5",
+    "svgo": "^4.0.0",
     "tailwindcss": "^3.4.7",
-    "vite": "^5.4.2"
+    "vite": "^5.4.2",
+    "vite-plugin-image-optimizer": "^2.0.3"
   }
 }
