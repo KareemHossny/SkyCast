@@ -1,3 +1,23 @@
 {
-  "version": 2
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/api/[...all].js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/api(?:/.*)?$",
+      "dest": "backend/api/[...all].js"
+    },
+    {
+      "src": "^/weather(?:/.*)?$",
+      "dest": "backend/api/[...all].js"
+    },
+    {
+      "src": "^/health$",
+      "dest": "backend/api/[...all].js"
+    }
+  ]
 }

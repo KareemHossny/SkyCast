@@ -1,8 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const weatherRoutes = require('./routes/weatherRoutes');
-const { notFound, errorHandler } = require('./utils/errorHandlers');
+const weatherRoutes = require('./src/routes/weatherRoutes');
+const { notFound, errorHandler } = require('./src/utils/errorHandlers');
 
 const app = express();
 
