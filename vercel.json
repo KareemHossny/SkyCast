@@ -1,23 +1,26 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "backend/api/[...all].js",
-      "use": "@vercel/node"
+  "functions": {
+    "backend/api/[...all].js": {
+      "runtime": "nodejs20.x"
     }
-  ],
-  "routes": [
+  },
+  "rewrites": [
     {
-      "src": "^/api(?:/.*)?$",
-      "dest": "backend/api/[...all].js"
+      "source": "/api/(.*)",
+      "destination": "/backend/api/[...all]"
     },
     {
-      "src": "^/weather(?:/.*)?$",
-      "dest": "backend/api/[...all].js"
+      "source": "/weather/(.*)",
+      "destination": "/backend/api/[...all]"
     },
     {
-      "src": "^/health$",
-      "dest": "backend/api/[...all].js"
+      "source": "/weather",
+      "destination": "/backend/api/[...all]"
+    },
+    {
+      "source": "/health",
+      "destination": "/backend/api/[...all]"
     }
   ]
 }

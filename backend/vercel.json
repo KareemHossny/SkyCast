@@ -1,23 +1,14 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "api/[...all].js",
-      "use": "@vercel/node"
+  "functions": {
+    "api/[...all].js": {
+      "runtime": "nodejs20.x"
     }
-  ],
-  "routes": [
+  },
+  "rewrites": [
     {
-      "src": "^/api(?:/.*)?$",
-      "dest": "api/[...all].js"
-    },
-    {
-      "src": "^/weather(?:/.*)?$",
-      "dest": "api/[...all].js"
-    },
-    {
-      "src": "^/health$",
-      "dest": "api/[...all].js"
+      "source": "/(.*)",
+      "destination": "/api/[...all]"
     }
   ]
 }
