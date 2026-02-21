@@ -14,6 +14,7 @@ app.get('/health', (req, res) => {
 });
 
 app.use('/api/weather', weatherRoutes);
+app.use('/weather', weatherRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
