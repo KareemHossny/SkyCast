@@ -6,11 +6,22 @@ const { notFound, errorHandler } = require('./src/utils/errorHandlers');
 
 const app = express();
 
-app.use(cors({ origin: true }));
-app.use(express.json());
+const allowedOrigins = [
+  'https://skycast-xi-ecru.vercel.app'
+];
 
-// Vercel rewrites to a nested function path can preserve the "/backend/api"
-// prefix; normalize it so Express route matching stays consistent.
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));app.use(express.json());
+
+
 app.use((req, _res, next) => {
   if (req.url.startsWith('/backend/api')) {
     req.url = req.url.replace('/backend/api', '') || '/';
