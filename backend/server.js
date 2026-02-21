@@ -9,6 +9,15 @@ const app = express();
 app.use(cors({ origin: true }));
 app.use(express.json());
 
+// Vercel rewrites to a nested function path can preserve the "/backend/api"
+// prefix; normalize it so Express route matching stays consistent.
+app.use((req, _res, next) => {
+  if (req.url.startsWith('/backend/api')) {
+    req.url = req.url.replace('/backend/api', '') || '/';
+  }
+  next();
+});
+
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });

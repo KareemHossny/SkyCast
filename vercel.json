@@ -3,19 +3,19 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/backend/api/[...all]"
+      "destination": "/backend/api/$1"
     },
     {
       "source": "/weather/(.*)",
-      "destination": "/backend/api/[...all]"
+      "destination": "/backend/api/weather/$1"
     },
     {
       "source": "/weather",
-      "destination": "/backend/api/[...all]"
+      "destination": "/backend/api/weather"
     },
     {
       "source": "/health",
-      "destination": "/backend/api/[...all]"
+      "destination": "/backend/api/health"
     }
   ]
 }
