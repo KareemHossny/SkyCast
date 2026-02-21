@@ -1,4 +1,4 @@
-﻿const BASE = '';
+﻿const BASE = 'https://skycast-backend.vercel.app';
 
 export async function fetchWeatherByCity(city) {
   const res = await fetch(`${BASE}/api/weather?city=${encodeURIComponent(city)}`);
