@@ -1,4 +1,4 @@
-﻿require('dotenv').config();
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const weatherRoutes = require('./routes/weatherRoutes');
@@ -19,6 +19,11 @@ app.use(notFound);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`SkyCast API running on port ${PORT}`);
-});
+
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`SkyCast API running on port ${PORT}`);
+  });
+}
+
+module.exports = app;
